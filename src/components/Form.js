@@ -7,13 +7,14 @@ export default function Form(props) {
     reset,
     submitHandlers: { postQuote, putQuote },
   } = props
-
+ 
   ////////////// EVENT HANDLERS //////////////
   ////////////// EVENT HANDLERS //////////////
   ////////////// EVENT HANDLERS //////////////
   const onCancel = evt => {
     console.log(`TASK 6- This should prevent the default behavior and
       reset the form to its original values.`)
+      postQuote({text:'test', author: 'me'});
   }
 
   const onSubmit = evt => {
@@ -21,6 +22,7 @@ export default function Form(props) {
       check whether 'values' contains a truthy id. If so, invoke the correct callback
       to [PUT] an existing quote, otherwise invoke the correct callback
       to [POST] a new quote.`)
+     
   }
 
   const onChange = evt => {
