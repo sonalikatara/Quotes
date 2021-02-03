@@ -20,11 +20,20 @@ export default function Container() {
   ////////////// NETWORK HELPERS //////////////
   ////////////// NETWORK HELPERS //////////////
   ////////////// NETWORK HELPERS //////////////
-  const getQuotes = () => {
+  const getQuotes =  () => {
     console.log(`TASK 1- Use 'axios' or 'fetch' to [GET] a list of quotes
       from 'http://localhost:3333/api/quotes'. On success, the quotes
       in the response body should be set as the 'quotes' slice of state.
       On error, 'handleError' should be called.`)
+
+      let getQuotesUrl = 'http://localhost:3333/api/quotes';
+      axios.get(getQuotesUrl)
+        .then( response =>{
+          setQuotes(response.data);
+        })
+        .catch(error =>{
+          handleError(error)
+        })
   }
 
   const postQuote = ({ text, author }) => {
