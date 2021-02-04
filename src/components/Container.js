@@ -55,11 +55,26 @@ export default function Container() {
         })
   }
 
-  const putQuote = ({ id, text, author }) => {
+  const putQuote =  ({ id, text, author }) => {
     console.log(`TASK 3- Use 'axios' or 'fetch' to [PUT] an existing quote
       in 'http://localhost:3333/api/quotes/:id'. On success, the updated quote
       in the response body should be used to replace the old version of the quote in 'quotes'.
       On error, 'handleError' should be called. Finally, the form should be reset.`)
+     
+      const putQuoteURL = `http://localhost:3333/api/quotes/${id}`
+      
+      axios.put(putQuoteURL,{
+        author : author,
+        text : text,
+      })
+      .then( response =>{
+        setQuotes(response.data)
+      })
+      .catch(error =>{
+        handleError(error)
+      })
+
+      
   }
 
   const deleteQuote = (id) => {
