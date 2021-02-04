@@ -82,6 +82,16 @@ export default function Container() {
       in 'http://localhost:3333/api/quotes/:id'. On success, the deleted quote
       should be removed from the 'quotes' slice of state'.
       On error, 'handleError' should be called. Finally, the form should be reset.`)
+
+      const deleteQuoteURL = `http://localhost:3333/api/quotes/${id}`
+      
+      axios.delete(deleteQuoteURL)
+      .then( response =>{
+        setQuotes(response.data)
+      })
+      .catch(error =>{
+        handleError(error)
+      })
   }
 
   ////////////// OTHER HELPERS //////////////
