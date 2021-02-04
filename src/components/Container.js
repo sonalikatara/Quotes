@@ -101,9 +101,11 @@ export default function Container() {
     console.log(`TASK 5- This helper should find inside 'quotes' the quote with the given 'id'.
       Use the 'id', 'text' and 'author' properties of this quote to populate the corresponding
       fields of the 'formValues' slice of state.`)
- 
-      let quote = quotes.filter(quote=>quote.id===id);
-      return quote;
+     
+      let q = quotes.filter(quote => {
+        return quote.id ===id
+      });
+      setFormValues(q[0]);
 
   }
 
