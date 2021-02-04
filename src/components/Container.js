@@ -102,7 +102,7 @@ export default function Container() {
       Use the 'id', 'text' and 'author' properties of this quote to populate the corresponding
       fields of the 'formValues' slice of state.`)
  
-      let quote = this.state.quotes.filter(quote=>quote.id===id);
+      let quote = quotes.filter(quote=>quote.id===id);
       return quote;
 
   }
