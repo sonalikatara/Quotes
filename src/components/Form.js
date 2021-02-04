@@ -16,7 +16,7 @@ export default function Form(props) {
       reset the form to its original values.`)
       
       evt.preventDefault();
-      reset();
+      setValues({id:'',text : '', author: ''}); // reset() was not passing test on cypress
   }
 
   const onSubmit = evt => {
@@ -24,12 +24,11 @@ export default function Form(props) {
       check whether 'values' contains a truthy id. If so, invoke the correct callback
       to [PUT] an existing quote, otherwise invoke the correct callback
       to [POST] a new quote.`)
+      
     evt.preventDefault();
     if(values.id){
-        // PUT quote
         putQuote({...values});
     } else {
-        // POST quote
         postQuote({text : values.text, author: values.author});
     }
     
